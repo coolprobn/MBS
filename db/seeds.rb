@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+steam_momo = Item.create(name: 'Steam Momo', price: 120, image_url: 'uploads/items/momo-steam.jpg')
