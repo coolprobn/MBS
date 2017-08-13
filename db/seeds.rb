@@ -6,4 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-steam_momo = Item.create(name: 'Steam Momo', price: 120, image_url: 'uploads/items/momo-steam.jpg')
+category_cake = Category.create(name: 'Cake')
+category_bread = Category.create(name: 'Bread')
+category_coffee = Category.create(name: 'Coffee')
+category_pasteries = Category.create(name: 'Pasteries')
+category_cookies = Category.create(name: 'Cookies')
+
+mocha_cake = Item.create(name: 'Steam Momo', price: 120, image_url: '/uploads/items/cakes/mocha-caramal-cake.jpg', category_id: category_cake.id)
