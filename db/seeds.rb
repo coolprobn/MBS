@@ -12,4 +12,4 @@ category_coffee = Category.create(name: 'Coffee')
 category_pasteries = Category.create(name: 'Pasteries')
 category_cookies = Category.create(name: 'Cookies')
 
-mocha_cake = Item.create(name: 'Steam Momo', price: 120, image_url: '/uploads/items/cakes/mocha-caramal-cake.jpg', category_id: category_cake.id)
+mocha_cake = Item.create(name: 'Mocha Cake', price: 120, image_url: '/uploads/items/cakes/mocha-caramal-cake.jpg', category_id: category_cake.id)
