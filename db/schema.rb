@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170813100208) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -25,7 +22,7 @@ ActiveRecord::Schema.define(version: 20170813100208) do
     t.string "name"
     t.float "price"
     t.string "image_url"
-    t.bigint "category_id"
+    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_on_category_id"
@@ -33,8 +30,8 @@ ActiveRecord::Schema.define(version: 20170813100208) do
 
   create_table "ratings", force: :cascade do |t|
     t.integer "value"
-    t.bigint "item_id"
-    t.bigint "user_id"
+    t.integer "item_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_ratings_on_item_id"
@@ -61,7 +58,7 @@ ActiveRecord::Schema.define(version: 20170813100208) do
     t.string "nickname"
     t.string "image"
     t.string "email"
-    t.json "tokens"
+    t.string "tokens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
@@ -70,7 +67,4 @@ ActiveRecord::Schema.define(version: 20170813100208) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
-  add_foreign_key "items", "categories"
-  add_foreign_key "ratings", "items"
-  add_foreign_key "ratings", "users"
 end
