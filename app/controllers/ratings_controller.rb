@@ -25,7 +25,12 @@ class RatingsController < ApplicationController
   # POST /ratings.json
   def create
     # find or create by user id and category_id
-    @rating = Rating.find_by(user_id: rating_params[:user_id], item_id: rating_params[:item_id]) || Rating.new(rating_params)
+    @rating = Rating.find_by(user_id: rating_params[:user_id], item_id: rating_params[:item_id])
+    if(@rating)
+      @rating.update(rating_params)
+    else
+      @rating = Rating.new(rating_params)
+    end
 
     respond_to do |format|
       if @rating.save
