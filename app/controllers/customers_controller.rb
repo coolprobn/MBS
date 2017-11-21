@@ -37,6 +37,16 @@ class CustomersController < ApplicationController
     end
   end
 
+  # POST /customers/login.json
+  def login
+    customer = Customer.where(phone: customer_params[:phone]).first
+    if(customer && customer.password = customer_params[:password])
+      render json: customer, status: :ok
+    else
+      render json: {}, :status => :unauthorized
+    end
+  end
+
   # PATCH/PUT /customers/1
   # PATCH/PUT /customers/1.json
   def update

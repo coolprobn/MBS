@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :customers do
+    collection do
+      post :login
+    end
+  end
   resources :orders
   resources :ratings
   mount_devise_token_auth_for 'User', at: 'auth'
